@@ -1,5 +1,5 @@
-# Pycount
-This is pycount. Currently you can return the amount of lines for all Python-Files of an
+# Countsy
+This is countsy. Currently you can return the amount of lines for all Python-Files of an
 entire dictionary.
 It does not ignore comments and or blank lines (probably following), also I would like to 
 work on implementing more programming languages.

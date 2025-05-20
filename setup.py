@@ -1,11 +1,11 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 with open("README.md", encoding="utf-8") as f:
     long_description = f.read()
 
 
 setup(
-    name="pycount",
+    name="countsy",
     version="1.0.0",
     author="Furkan Tandogan",
     description="Count lines of Python code in directories",
@@ -15,7 +15,7 @@ setup(
     package_dir={"": "src"},
     entry_points={
         "console_scripts": [
-            "pycount=cli:main"
+            "countsy=cli:main"
         ],
     },
     python_requires=">=3.6",
