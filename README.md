@@ -18,3 +18,10 @@ countsy FOLDER_TO_PATH
 countsy ./
 >>> Total lines of Python-Code in folder:  86
 ```
+
+### Flags
+call countsy for help
+```
+folder_path: positional, right after countsy
+--tqdm: includes progress bar, default is false
+```

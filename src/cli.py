@@ -1,6 +1,7 @@
 import glob
 import os
 import argparse
+from tqdm import tqdm
 
 # TODO: Ignore blank lines, ignore comments
 
@@ -25,13 +26,17 @@ def return_lines_of_code(filename: str) -> int:
 		return len(f.read().split('\n'))
 
 
-def return_sum_of_lines_in_folder(list_of_files):
+def return_sum_of_lines_in_folder(list_of_files, use_tqdm):
 	"""
 	Returns the sum of all single lengths of code
 	:param list_of_files:
 	:return:
 	"""
-	return sum([return_lines_of_code(el) for el in list_of_files])
+	print(list_of_files)
+	if use_tqdm:
+		return sum([return_lines_of_code(el) for el in tqdm(list_of_files)])
+	else:
+		return sum([return_lines_of_code(el) for el in list_of_files])
 
 
 def init_parser():
@@ -46,17 +51,23 @@ def init_parser():
 		nargs='?',
 		default=None
 	)
+	parser.add_argument(
+		"--tqdm",
+		help="Includes progress bar",
+		action="store_true",
+		default=False
+	)
 	args = parser.parse_args()
 	
 	if args.folder_path is None:
 		parser.print_help()
 		parser.exit()
-		
-	return args.folder_path
+
+	return args.folder_path, args.tqdm
 
 
 def main():
-	folder_path = init_parser()
+	folder_path, use_tqdm = init_parser()
 	all_python_files = return_all_files_in_folder(folder_path)
 	
 	# If returned element is a list, the folder_path was valid
@@ -65,7 +76,7 @@ def main():
 		if not all_python_files:
 			print(f"There are no Python-Files in {folder_path}")
 		else:
-			print("Total lines of Python-Code in folder: ", return_sum_of_lines_in_folder(all_python_files))
+			print("Total lines of Python-Code in folder: ", return_sum_of_lines_in_folder(all_python_files, use_tqdm))
 	# Prints error message
 	else:
 		print(all_python_files)
