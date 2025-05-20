@@ -14,7 +14,7 @@ setup(
     package_dir={"countsy": "src"},
     entry_points={
         "console_scripts": [
-            "countsy=countsy.cli:main"
+            "countsy=src.cli:main"
         ],
     },
     python_requires=">=3.6",
