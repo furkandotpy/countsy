@@ -5,16 +5,16 @@ It does not ignore comments and or blank lines (probably following), also I woul
 work on implementing more programming languages.
 ## Usage
 ### Installation
-```commandline
-pip install pycount
+```
+pip install countsy
 ```
 ### Usage
 ```
-pycount FOLDER_TO_PATH
+countsy FOLDER_TO_PATH
 ```
 
 ### Sample Output
 ```
-pycount ./
+countsy ./
 >>> Total lines of Python-Code in folder:  86
 ```

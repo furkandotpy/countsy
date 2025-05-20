@@ -6,7 +6,7 @@ with open("README.md", encoding="utf-8") as f:
 
 setup(
     name="countsy",
-    version="1.0.0",
+    version="1.0.2",
     author="Furkan Tandogan",
     description="Count lines of Python code in directories",
     long_description=long_description,
@@ -15,7 +15,7 @@ setup(
     package_dir={"": "src"},
     entry_points={
         "console_scripts": [
-            "countsy=cli:main"
+            "countsy=src.cli:main"
         ],
     },
     python_requires=">=3.6",

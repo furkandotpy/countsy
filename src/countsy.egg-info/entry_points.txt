@@ -1,2 +1,2 @@
 [console_scripts]
-countsy = cli:main
+countsy = src.cli:main

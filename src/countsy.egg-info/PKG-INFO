@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: countsy
-Version: 1.0.0
+Version: 1.0.2
 Summary: Count lines of Python code in directories
 Author: Furkan Tandogan
 Classifier: Programming Language :: Python :: 3
@@ -17,23 +17,23 @@ Dynamic: license-file
 Dynamic: requires-python
 Dynamic: summary
 
-# Pycount
-This is pycount. Currently you can return the amount of lines for all Python-Files of an
+# Countsy
+This is countsy. Currently you can return the amount of lines for all Python-Files of an
 entire dictionary.
 It does not ignore comments and or blank lines (probably following), also I would like to 
 work on implementing more programming languages.
 ## Usage
 ### Installation
-```commandline
-pip install pycount
+```
+pip install countsy
 ```
 ### Usage
 ```
-pycount FOLDER_TO_PATH
+countsy FOLDER_TO_PATH
 ```
 
 ### Sample Output
 ```
-pycount ./
+countsy ./
 >>> Total lines of Python-Code in folder:  86
 ```
