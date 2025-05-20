@@ -1,0 +1,2 @@
+[console_scripts]
+pycount = cli:main
