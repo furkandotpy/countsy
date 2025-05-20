@@ -1,8 +1,0 @@
-setup.py
-src/__init__.py
-src/cli.py
-src/pycount.egg-info/PKG-INFO
-src/pycount.egg-info/SOURCES.txt
-src/pycount.egg-info/dependency_links.txt
-src/pycount.egg-info/entry_points.txt
-src/pycount.egg-info/top_level.txt
