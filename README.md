@@ -1,43 +1,67 @@
-# Countsy
-This is countsy. Currently you can return the amount of lines for all Python-Files of an
-entire dictionary. Via flags you have the option to ignore comments, blank lines or both.
-I would like to work on optimization, although for pure python projects this is faster than cloc
-work on implementing more programming languages.
-## Usage
-### Installation
-```
+# Countsy 📏
+
+*A fast, customizable line counter for Python projects (with plans to expand!)*
+
+## Features ✨
+
+- Count lines in **Python files** (with more languages coming soon!)
+- **Flexible filtering**: Ignore comments, blank lines, or both
+- **Progress bars** (optional) for large directories
+- Faster than `cloc` for pure Python projects
+
+## Installation ⚡
+
+```bash
 pip install countsy
 ```
-### Usage
-```
-countsy FOLDER_TO_PATH
+
+## Usage 🚀
+
+### Basic Command
+
+```bash
+countsy /path/to/folder  # Default: current directory
 ```
 
 ### Sample Output
+
 ```
-countsy
->>> Total Python-Files:  1129
->>> Total lines of Python-Code in folder:  376045
+Total Python-Files: 1129
+Total lines of Python-Code in folder: 376045
 ```
 
-### Flags
-call countsy for help
+## Flags 🎛️
+
+| Flag | Description | Default |
+|------|-------------|---------|
+| `--tqdm` | Show progress bar | False |
+| `--ignore-comments` | Exclude single/multi-line comments | False |
+| `--ignore-blank-lines` | Exclude empty lines | False |
+| `--ignore` | Exclude both comments and blank lines | False |
+
+### Example
+
+```bash
+countsy /path/to/folder --ignore --tqdm
 ```
-folder_path: positional, right after countsy, optional with default set to current directory
---tqdm: includes progress bar, default is false
---ignore-comments: ignores all comments (single and multiline)
---ignore-blank-lines: ignores all blank lines
---ignore: ignores both comments and blank lines
+
+## Disclaimer⚠️
+
+- `tqdm` is required for progress bars
+
+## Missing Modules? 🔧
+
+```bash
+# Install required dependencies
+pip install tqdm
 ```
-# Disclaimers
-## More Flag Info
-The --ignore-blank-lines flag does not ignore blank lines inside of multiline comments. 
-Both ignore flags are best used together (-> --ignore).
-## Necessary Modules
-Modules like tqdm are necessary. I will maybe think of ways to make it optional,
-but as is, if you want to use countsy, you need to install the requirements.
-### Fix
-1) Bold Approach:
-    Call 'countsy' repeatedly until there are no "ModuleNotFoundError"s anymore
-2) Advanced and Safe Approach:
-    Locate the requirements file in the GitHub Repo and install all requirements
+
+## Roadmap 🗺️
+
+- Support for more languages (JavaScript, Java, etc.)
+- Optimize speed for large codebases
+- Optional dependencies
+
+## Contributing 🤝
+
+PRs and feature requests are welcome!
