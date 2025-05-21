@@ -16,7 +16,8 @@ countsy FOLDER_TO_PATH
 ### Sample Output
 ```
 countsy
->>> Total lines of Python-Code in folder:  86
+>>> Total Python-Files:  1129
+>>> Total lines of Python-Code in folder:  376045
 ```
 
 ### Flags
@@ -28,6 +29,15 @@ folder_path: positional, right after countsy, optional with default set to curre
 --ignore-blank-lines: ignores all blank lines
 --ignore: ignores both comments and blank lines
 ```
-### Disclaimer
+# Disclaimers
+## More Flag Info
 The --ignore-blank-lines flag does not ignore blank lines inside of multiline comments. 
 Both ignore flags are best used together (-> --ignore).
+## Necessary Modules
+Modules like tqdm are necessary. I will maybe think of ways to make it optional,
+but as is, if you want to use countsy, you need to install the requirements.
+### Fix
+1) Bold Approach:
+    Call 'countsy' repeatedly until there are no "ModuleNotFoundError"s anymore
+2) Advanced and Safe Approach:
+    Locate the requirements file in the GitHub Repo and install all requirements

@@ -153,7 +153,7 @@ def init_parser():
 	if args.ignore:
 		args.ignore_blank_lines = True
 		args.ignore_comments = True
-	print(args)
+
 	return args
 
 
@@ -171,8 +171,8 @@ def main():
 			if len(all_python_files) == 1:
 				print("Total lines of Python-Code in file: ")
 			else:
-				print("Total files: ", len(all_python_files))
-				print("Total lines of Python-Code in folder: ")
+				print("Total Python-Files: ", len(all_python_files))
+				print("Total lines of Python-Code in folder: ", end=" ")
 			print(return_sum_of_lines_in_folder(all_python_files, args))
 	else:
 		print(all_python_files)
