@@ -25,26 +25,22 @@ class Test(TestCase):
 				folder_path=None
 			)
 		
-		self.assertEqual(return_sum_of_lines_in_folder([test_file_1], make_args()), 31)
-		self.assertEqual(return_sum_of_lines_in_folder([test_file_1], make_args(ignore_comments=True)), 20)
-		self.assertEqual(return_sum_of_lines_in_folder([test_file_1], make_args(ignore_blank_lines=True)), 19)
-		self.assertEqual(
-			return_sum_of_lines_in_folder([test_file_1], make_args(ignore_comments=True, ignore_blank_lines=True)), 8)
+		self.assertEqual(return_sum_of_lines_in_folder([test_file_1], make_args()), {'no_ignore': 31})
+		self.assertEqual(return_sum_of_lines_in_folder([test_file_1], make_args(ignore_comments=True)), {'ignore_comments': {'code': 20, 'comments': 11}})
+		self.assertEqual(return_sum_of_lines_in_folder([test_file_1], make_args(ignore_blank_lines=True)), {'ignore_blanks': {'blanks': 12, 'code': 19}})
+		self.assertEqual(return_sum_of_lines_in_folder([test_file_1], make_args(ignore_comments=True, ignore_blank_lines=True)), {'ignore_both': {'blanks': 12, 'code': 8, 'comments': 11}})
 		
-		self.assertEqual(return_sum_of_lines_in_folder([test_file_2], make_args()), 30)
-		self.assertEqual(return_sum_of_lines_in_folder([test_file_2], make_args(ignore_comments=True)), 25)
-		self.assertEqual(return_sum_of_lines_in_folder([test_file_2], make_args(ignore_blank_lines=True)), 5)
-		self.assertEqual(
-			return_sum_of_lines_in_folder([test_file_2], make_args(ignore_comments=True, ignore_blank_lines=True)), 0)
+		self.assertEqual(return_sum_of_lines_in_folder([test_file_2], make_args()), {'no_ignore': 30})
+		self.assertEqual(return_sum_of_lines_in_folder([test_file_2], make_args(ignore_comments=True)), {'ignore_comments': {'code': 25, 'comments': 5}})
+		self.assertEqual(return_sum_of_lines_in_folder([test_file_2], make_args(ignore_blank_lines=True)), {'ignore_blanks': {'blanks': 25, 'code': 5}})
+		self.assertEqual(return_sum_of_lines_in_folder([test_file_2], make_args(ignore_comments=True, ignore_blank_lines=True)), {'ignore_both': {'blanks': 25, 'code': 0, 'comments': 5}})
 		
-		self.assertEqual(return_sum_of_lines_in_folder([test_file_3], make_args()), 9)
-		self.assertEqual(return_sum_of_lines_in_folder([test_file_3], make_args(ignore_comments=True)), 7)
-		self.assertEqual(return_sum_of_lines_in_folder([test_file_3], make_args(ignore_blank_lines=True)), 8)
-		self.assertEqual(
-			return_sum_of_lines_in_folder([test_file_3], make_args(ignore_comments=True, ignore_blank_lines=True)), 6)
+		self.assertEqual(return_sum_of_lines_in_folder([test_file_3], make_args()), {'no_ignore': 9})
+		self.assertEqual(return_sum_of_lines_in_folder([test_file_3], make_args(ignore_comments=True)), {'ignore_comments': {'code': 7, 'comments': 2}})
+		self.assertEqual(return_sum_of_lines_in_folder([test_file_3], make_args(ignore_blank_lines=True)), {'ignore_blanks': {'blanks': 1, 'code': 8}})
+		self.assertEqual(return_sum_of_lines_in_folder([test_file_3], make_args(ignore_comments=True, ignore_blank_lines=True)), {'ignore_both': {'blanks': 1, 'code': 6, 'comments': 2}})
 		
-		self.assertEqual(return_sum_of_lines_in_folder(test_dir, make_args()), 70)
-		self.assertEqual(return_sum_of_lines_in_folder(test_dir, make_args(ignore_comments=True)), 52)
-		self.assertEqual(return_sum_of_lines_in_folder(test_dir, make_args(ignore_blank_lines=True)), 32)
-		self.assertEqual(
-			return_sum_of_lines_in_folder(test_dir, make_args(ignore_comments=True, ignore_blank_lines=True)), 14)
+		self.assertEqual(return_sum_of_lines_in_folder(test_dir, make_args()), {'no_ignore': 70})
+		self.assertEqual(return_sum_of_lines_in_folder(test_dir, make_args(ignore_comments=True)), {'ignore_comments': {'code': 52, 'comments': 18}})
+		self.assertEqual(return_sum_of_lines_in_folder(test_dir, make_args(ignore_blank_lines=True)), {'ignore_blanks': {'blanks': 38, 'code': 32}})
+		self.assertEqual(return_sum_of_lines_in_folder(test_dir, make_args(ignore_comments=True, ignore_blank_lines=True)), {'ignore_both': {'blanks': 38, 'code': 14, 'comments': 18}})

@@ -26,8 +26,8 @@ countsy /path/to/folder  # Default: current directory
 ### Sample Output
 
 ```
-Total Python-Files: 1129
-Total lines of Python-Code in folder: 376045
+  Total Python-Files in current directory: 7
+  Total lines in folder:  471
 ```
 
 ## Flags 🎛️
