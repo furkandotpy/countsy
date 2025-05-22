@@ -199,6 +199,7 @@ def format_output(raw_output, all_python_files, args):
 	:param raw_output: Results from return_sum_of_lines_in_folder
 	:param all_python_files: List of all Python files processed
 	"""
+	print('\n')
 	# Handle errors first
 	if "errors" in raw_output:
 		print("Errors encountered:")
@@ -282,12 +283,6 @@ def init_parser():
 	parser.add_argument(
 		"--ignore-blank-lines",
 		help="Ignores counting blank lines.",
-		action="store_true",
-		default=False
-	)
-	parser.add_argument(
-		"--ignore-blank-lines-in-comments",
-		help="Ignores counting all blank lines.",
 		action="store_true",
 		default=False
 	)

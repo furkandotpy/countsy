@@ -5,7 +5,7 @@ with open("README.md", encoding="utf-8") as f:
 
 setup(
     name="countsy",
-    version="1.0.7",
+    version="1.0.8",
     author="Furkan Tandogan",
     description="Count lines of Python code in directories",
     long_description=long_description,

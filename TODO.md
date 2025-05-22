@@ -1,1 +1,1 @@
- # - Implement --respect-git: ignores all ignored files via .gitignore
+ - Implement --respect-git: ignores all ignored files via .gitignore (this is going to be harder than expected)
