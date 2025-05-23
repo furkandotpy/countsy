@@ -5,7 +5,7 @@
 ## Features ✨
 
 - Count lines in **Python files** (with more languages coming soon!)
-- **Flexible filtering**: Ignore comments, blank lines, or both
+- **Flexible filtering**: Tracks comments, blank lines, or both
 - **Progress bars** (optional) for large directories
 - Faster than `cloc` for pure Python projects (details below) and more detailed than `wc -l`
 
@@ -43,17 +43,17 @@ $   countsy
 
 ## Flags 🎛️
 
-| Flag | Description | Default |
-|------|-------------|---------|
-| `--tqdm` | Show progress bar | False |
-| `--ignore-comments` | Exclude single/multi-line comments | False |
-| `--ignore-blank-lines` | Exclude empty lines | False |
-| `--ignore` | Exclude both comments and blank lines | False |
+| Flag                  | Description | Default |
+|-----------------------|-------------|---------|
+| `--tqdm`              | Show progress bar | False |
+| `--track-comments`    | Exclude single/multi-line comments | False |
+| `--track-blank-lines` | Exclude empty lines | False |
+| `--track`             | Exclude both comments and blank lines | False |
 
 ### Example
 
 ```bash
-$ countsy /path/to/folder --ignore --tqdm
+$ countsy /path/to/folder --track --tqdm
 
 >  100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1129/1129 [00:00<00:00, 4505.66it/s]
 >  Total Python-Files in current directory: 1129
@@ -68,13 +68,13 @@ $ countsy /path/to/folder --ignore --tqdm
 `countsy`:
 
 ```bash
-$  time countsy --ignore
+$  time countsy --track
 >  Total Python-Files in current directory: 1129
 >  Total lines of Python-Code in folder: 212845
 >  Total blank lines in Python-Files in folder: 28168
 >  Total comments in Python-Files in folder: 135177
 >  Total lines in folder: 376190
->  countsy --ignore  0.10s user 0.04s system 98% cpu 0.147 total
+>  countsy --track  0.10s user 0.04s system 98% cpu 0.147 total
 ```
 
 
@@ -112,6 +112,7 @@ need advanced settings.
 -  I am not entirely sure why there are slight differences between `countsy`, `bash` and `cloc`.
 -  The first time I ran cloc on my GitHub folder (results above!) it took around 11 minutes. Maybe there
 is some indexing going on or caching. Subsequent runs take around 3 seconds, which is fast, but still way slower than `countsy`
+- Can not encode non-utf-8 python files (working on that)
 
 ## Missing Modules? 🔧
 
