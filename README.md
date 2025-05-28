@@ -22,7 +22,7 @@ $ pip install countsy
 ```bash
 $ countsy /path/to/folder
 ```
-Note that `/path/to/folder` is not required. If left unfilled, i.e. calling countsy with no arguments `/path/to/folder` is set to the current directory.
+Note that `/path/to/folder` is not required. If left unfilled, i.e. calling countsy with no arguments, `/path/to/folder` is set to the current directory.
 
 ### Sample Output
 
@@ -31,14 +31,6 @@ $  countsy
 
 >  Total Python-Files in current directory: 1129
 >  Total lines in folder:  376190
-```
-
-### Option 2: Using Diff Syntax (for clear input/output separation)
-```bash
-$   countsy
-
-> Total Python-Files in current directory: 1129
-> Total lines in folder: 376190
 ```
 
 ## Flags 🎛️
