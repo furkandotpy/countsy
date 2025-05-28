@@ -23,7 +23,7 @@ def init_parser():
 		default="./"
 	)
 	
-	init_binary_flag(parser, "tqdm", "Includes progress bar")
+	init_binary_flag(parser, "pbar", "Includes progress bar")
 	init_binary_flag(parser, "track-comments", "Tracks comments")
 	init_binary_flag(parser, "track-blank-lines", "Tracks blank lines")
 	init_binary_flag(parser, "track", "Tracks both comments and blank lines (eq. to 'countsy --track-blank-lines --track-comments) [overwrites both options]")

@@ -11,7 +11,6 @@ def format_output(raw_output, all_python_files, args):
 		for error in raw_output["errors"]:
 			print(f"  - {error}")
 		print()
-	
 	try:
 		key = next(k for k in raw_output.keys() if k != "errors")
 		value = raw_output[key]
@@ -20,7 +19,7 @@ def format_output(raw_output, all_python_files, args):
 		from sys import exit
 		exit(1)
 		return 1
-	
+
 	if len(all_python_files) != 1:
 		name = "directory"
 		line = "  Total files in "
@@ -33,21 +32,22 @@ def format_output(raw_output, all_python_files, args):
 		print(line)  # Output specific message
 	else:
 		name = "file"
-	
-	if key == "no_ignore":
-		print(f"  Total lines in {name}: ", value)
+
+	if key == "no_tracking":
+		print(f"  Total lines: ", value["total"])
 	
 	elif key == "track_blank_lines":
-		print(f"  Total lines of Python-Code in {name}: {value['code']}")
-		print(f"  Total blank lines in Python-Files in {name}: {value['blank_lines']}")
-		print(f"  Total lines in {name}: {value['total']}")
+		print(f"  Total lines of Python-Code: {value['code']}")
+		print(f"  Total blank lines in Python-Files: {value['blank_lines']}")
+		print(f"  Total lines: {value['total']}")
 	
 	elif key == "track_comments":
-		print(f"  Total lines of Python-Code in {name}: {value['code']}")
-		print(f"  Total comments in Python-Files in {name}: {value['comments']}")
-		print(f"  Total lines in {name}: {value['total']}")
+		print(f"  Total lines of Python-Code: {value['code']}")
+		print(f"  Total comments in Python-Files: {value['comments']}")
+		print(f"  Total lines: {value['total']}")
+		
 	elif key == "track_both":
-		print(f"  Total lines of Python-Code in {name}: {value['code']}")
-		print(f"  Total blank lines in Python-Files in {name}: {value['blank_lines']}")
-		print(f"  Total comments in Python-Files in {name}: {value['comments']}")
-		print(f"  Total lines in {name}: {value['total']}")
+		print(f"  Total lines of Python-Code: {value['code']}")
+		print(f"  Total blank lines in Python-Files: {value['blank_lines']}")
+		print(f"  Total comments in Python-Files: {value['comments']}")
+		print(f"  Total lines: {value['total']}")

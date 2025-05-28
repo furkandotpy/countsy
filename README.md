@@ -45,7 +45,7 @@ $   countsy
 
 | Flag                  | Description | Default |
 |-----------------------|-------------|---------|
-| `--tqdm`              | Show progress bar | False |
+| `--pbar`              | Show progress bar | False |
 | `--track-comments`    | Exclude single/multi-line comments | False |
 | `--track-blank-lines` | Exclude empty lines | False |
 | `--track`             | Exclude both comments and blank lines | False |
@@ -109,11 +109,34 @@ need advanced settings.
 ## Disclaimer⚠️
 
 - `tqdm` is required for progress bars
--  I am not entirely sure why there are slight differences between `countsy`, `bash` and `cloc`.
+-  The differences between `countsy`, `bash` and `cloc` result from a differentiation between multiline strings, PLOC and LLOC.
 -  The first time I ran cloc on my GitHub folder (results above!) it took around 11 minutes. Maybe there
 is some indexing going on or caching. Subsequent runs take around 3 seconds, which is fast, but still way slower than `countsy`
 - Can not encode non-utf-8 python files (working on that)
+- This tool does not count multiline strings as a line. This causes unexpected behaviour if a logical line starts, inits the string in the same line and ends the str in a blank line (this is very uncommon but still possible) [Working on that with tokenizing and parsing tools]
+Example:\
+### Let main.py
+```python 
+(1) string = """
+(2)        hello
+(3)        hi
+(4)"""
+(5)
+```
 
+```bash
+$ countsy --track main.py
+>
+> --track test.py
+>  Total lines of Python-Code: 3
+>  Total blank lines in Python-Files: 0
+>  Total comments in Python-Files: 2
+>  Total lines: 5
+```
+
+As you can see, this behaviour is divergent from expectation which is 5 Lines, 0 Comments. But it makes sense in that from line 4 the comment begins.
+This case is obviously not catastrophic but consider an example where you define a multiline string as in main.py at the beginning. Let the hypothetical file have 10000 lines with not multiline comments.
+The output would be 3 Lines and 9996 Comments. This _is_ catastrophic.
 ## Missing Modules? 🔧
 
 ```bash

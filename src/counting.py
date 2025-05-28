@@ -37,12 +37,11 @@ def analyze_lines(file: list, track_comments: bool, track_blank_lines: bool) -> 
 		is_comment = False
 		is_blank = False
 		
-		# Check for blank line first (if tracking)
 		if track_blank_lines and stripped == "":
 			is_blank = True
 		
 		# Check for comments (if tracking)
-		elif track_comments:
+		if track_comments:
 			# Single line comment
 			if stripped.startswith('#'):
 				is_comment = True
@@ -106,7 +105,7 @@ def return_sum_of_lines_in_folder(list_of_files, args):
 	:param args: arg parser arguments
 	:return: Dictionary with totals and any errors encountered
 	"""
-	use_tqdm = args.tqdm
+	pbar = args.pbar
 	track_blank_lines = args.track_blank_lines
 	track_comments = args.track_comments
 	
@@ -130,7 +129,8 @@ def return_sum_of_lines_in_folder(list_of_files, args):
 		return result
 	
 	# Process multiple files
-	iterator = tqdm(list_of_files) if use_tqdm else list_of_files
+	from tqdm import tqdm
+	iterator = tqdm(list_of_files) if pbar else list_of_files
 	
 	result = None
 	

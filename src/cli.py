@@ -7,7 +7,7 @@ from src.output_formatting import *
 from src.counting import *
 
 # TODO: more programming languages
-			
+
 		
 def main():
 	args = init_parser()

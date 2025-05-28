@@ -31,3 +31,5 @@ fix utf8 errors
 ```
 
 # - Inline comments
+
+# - Use python's inbuilt tokenizer to handle syntactically correct code and fall back to my manual checking for bad code

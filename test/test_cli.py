@@ -16,9 +16,9 @@ class Test(TestCase):
 		self.assertEqual(sorted(test_dir),
 		                 ['test_dir/test_file_1.py', 'test_dir/test_file_2.py', 'test_dir/test_file_3.py'])
 		
-		def make_args(tqdm=False, track_comments=False, track_blank_lines=False):
+		def make_args(pbar=False, track_comments=False, track_blank_lines=False):
 			return Namespace(
-				tqdm=tqdm,
+				pbar=pbar,
 				track_comments=track_comments,
 				track_blank_lines=track_blank_lines,
 				track=False,
